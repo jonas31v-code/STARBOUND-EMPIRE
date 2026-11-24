@@ -1,0 +1,92 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "drill_mk1",
+   "slot": "drill",
+   "tier": 1,
+   "cost": {
+    "credits": 900
+   },
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "manual_mining.yield",
+     "op": "add",
+     "value": 0.15
+    }
+   ],
+   "unlock": {
+    "skill": "mining",
+    "level": 6
+   }
+  },
+  {
+   "id": "laser_mk1",
+   "slot": "weapon",
+   "tier": 1,
+   "cost": {
+    "credits": 1500
+   },
+   "effects": [],
+   "unlock": "MIL-1",
+   "damagePerSecond": 12
+  },
+  {
+   "id": "laser_mk2",
+   "slot": "weapon",
+   "tier": 2,
+   "cost": {
+    "credits": 4500
+   },
+   "effects": [],
+   "unlock": "MIL-4",
+   "damagePerSecond": 18
+  },
+  {
+   "id": "laser_mk3",
+   "slot": "weapon",
+   "tier": 3,
+   "cost": {
+    "credits": 13500
+   },
+   "effects": [],
+   "unlock": "MIL-7",
+   "damagePerSecond": 26.4
+  },
+  {
+   "id": "thruster_mk1",
+   "slot": "thruster",
+   "tier": 1,
+   "cost": {
+    "credits": 800
+   },
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "ship.speed",
+     "op": "add",
+     "value": 0.1
+    }
+   ],
+   "unlock": "NAV-2"
+  },
+  {
+   "id": "shield_mk1",
+   "slot": "shield",
+   "tier": 1,
+   "cost": {
+    "credits": 2000
+   },
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "combat.hull",
+     "op": "add",
+     "value": 0.05
+    }
+   ],
+   "unlock": "MIL-3"
+  }
+ ]
+}

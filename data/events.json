@@ -1,0 +1,47 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "ore_shortage",
+   "type": "market",
+   "weight": 5,
+   "conditions": {
+    "phaseMin": 3
+   },
+   "offlineAllowed": true,
+   "effect": {
+    "good": "iron_ore",
+    "priceMod": 0.1,
+    "duration": 3600
+   }
+  },
+  {
+   "id": "ore_glut",
+   "type": "market",
+   "weight": 5,
+   "conditions": {
+    "phaseMin": 3
+   },
+   "offlineAllowed": true,
+   "effect": {
+    "good": "iron_ore",
+    "priceMod": -0.1,
+    "duration": 3600
+   }
+  },
+  {
+   "id": "pirate_raid",
+   "type": "pirate",
+   "weight": 3,
+   "conditions": {
+    "phaseMin": 3,
+    "riskMin": 4
+   },
+   "offlineAllowed": false,
+   "effect": {
+    "powerBase": 100,
+    "powerGrowth": 1.35
+   }
+  }
+ ]
+}

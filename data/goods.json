@@ -1,0 +1,129 @@
+{
+ "version": 1,
+ "families": {
+  "raw": {
+   "stockTarget": 2000,
+   "baseConsumption": 600
+  },
+  "refined": {
+   "stockTarget": 1000,
+   "baseConsumption": 250
+  },
+  "chem_elec": {
+   "stockTarget": 800,
+   "baseConsumption": 150
+  },
+  "advanced": {
+   "stockTarget": 300,
+   "baseConsumption": 30
+  },
+  "military": {
+   "stockTarget": 300,
+   "baseConsumption": 40
+  }
+ },
+ "entries": [
+  {
+   "id": "iron_ore",
+   "family": "raw",
+   "basePrice": 10,
+   "tradable": true
+  },
+  {
+   "id": "copper_ore",
+   "family": "raw",
+   "basePrice": 12,
+   "tradable": true
+  },
+  {
+   "id": "silicon",
+   "family": "raw",
+   "basePrice": 14,
+   "tradable": true
+  },
+  {
+   "id": "carbon",
+   "family": "raw",
+   "basePrice": 8,
+   "tradable": true
+  },
+  {
+   "id": "ice",
+   "family": "raw",
+   "basePrice": 6,
+   "tradable": true
+  },
+  {
+   "id": "titanium_ore",
+   "family": "raw",
+   "basePrice": 40,
+   "tradable": true
+  },
+  {
+   "id": "steel",
+   "family": "refined",
+   "basePrice": 30,
+   "tradable": true
+  },
+  {
+   "id": "refined_copper",
+   "family": "refined",
+   "basePrice": 29,
+   "tradable": true
+  },
+  {
+   "id": "titanium_alloy",
+   "family": "refined",
+   "basePrice": 126,
+   "tradable": true
+  },
+  {
+   "id": "polymers",
+   "family": "chem_elec",
+   "basePrice": 18,
+   "tradable": true
+  },
+  {
+   "id": "fuel",
+   "family": "chem_elec",
+   "basePrice": 11,
+   "tradable": true
+  },
+  {
+   "id": "circuits",
+   "family": "chem_elec",
+   "basePrice": 91,
+   "tradable": true
+  },
+  {
+   "id": "mechanical_parts",
+   "family": "advanced",
+   "basePrice": 142,
+   "tradable": true
+  },
+  {
+   "id": "engines",
+   "family": "advanced",
+   "basePrice": 802,
+   "tradable": true
+  },
+  {
+   "id": "shields",
+   "family": "advanced",
+   "basePrice": 320,
+   "tradable": true
+  },
+  {
+   "id": "ammo",
+   "family": "military",
+   "basePrice": 9,
+   "tradable": true
+  },
+  {
+   "id": "missiles",
+   "family": "military",
+   "basePrice": 130,
+   "tradable": true
+  }
+ ]
+}

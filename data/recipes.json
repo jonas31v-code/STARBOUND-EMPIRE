@@ -1,0 +1,415 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "mine_iron",
+   "module": "mine",
+   "inputs": [],
+   "outputs": [
+    {
+     "item": "iron_ore",
+     "qty": 10
+    }
+   ],
+   "duration": 30,
+   "energy": 2,
+   "unlock": "IND-1"
+  },
+  {
+   "id": "mine_copper",
+   "module": "mine",
+   "inputs": [],
+   "outputs": [
+    {
+     "item": "copper_ore",
+     "qty": 10
+    }
+   ],
+   "duration": 30,
+   "energy": 2,
+   "unlock": "IND-1"
+  },
+  {
+   "id": "mine_silicon",
+   "module": "mine",
+   "inputs": [],
+   "outputs": [
+    {
+     "item": "silicon",
+     "qty": 8
+    }
+   ],
+   "duration": 30,
+   "energy": 2,
+   "unlock": "IND-1"
+  },
+  {
+   "id": "mine_carbon",
+   "module": "mine",
+   "inputs": [],
+   "outputs": [
+    {
+     "item": "carbon",
+     "qty": 8
+    }
+   ],
+   "duration": 30,
+   "energy": 2,
+   "unlock": "IND-1"
+  },
+  {
+   "id": "mine_ice",
+   "module": "mine",
+   "inputs": [],
+   "outputs": [
+    {
+     "item": "ice",
+     "qty": 8
+    }
+   ],
+   "duration": 30,
+   "energy": 2,
+   "unlock": "IND-1"
+  },
+  {
+   "id": "mine_titanium",
+   "module": "mine",
+   "inputs": [],
+   "outputs": [
+    {
+     "item": "titanium_ore",
+     "qty": 4
+    }
+   ],
+   "duration": 45,
+   "energy": 3,
+   "unlock": "IND-1",
+   "requires": {
+    "skill": "mining",
+    "level": 10
+   }
+  },
+  {
+   "id": "steel",
+   "module": "refinery",
+   "inputs": [
+    {
+     "item": "iron_ore",
+     "qty": 3
+    },
+    {
+     "item": "carbon",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "steel",
+     "qty": 2
+    }
+   ],
+   "duration": 20,
+   "energy": 3,
+   "unlock": "IND-2"
+  },
+  {
+   "id": "refined_copper",
+   "module": "refinery",
+   "inputs": [
+    {
+     "item": "copper_ore",
+     "qty": 3
+    }
+   ],
+   "outputs": [
+    {
+     "item": "refined_copper",
+     "qty": 2
+    }
+   ],
+   "duration": 20,
+   "energy": 3,
+   "unlock": "IND-2"
+  },
+  {
+   "id": "titanium_alloy",
+   "module": "refinery",
+   "inputs": [
+    {
+     "item": "titanium_ore",
+     "qty": 3
+    },
+    {
+     "item": "steel",
+     "qty": 1
+    },
+    {
+     "item": "carbon",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "titanium_alloy",
+     "qty": 2
+    }
+   ],
+   "duration": 40,
+   "energy": 4,
+   "unlock": "IND-7"
+  },
+  {
+   "id": "polymers",
+   "module": "chemical_plant",
+   "inputs": [
+    {
+     "item": "carbon",
+     "qty": 2
+    },
+    {
+     "item": "ice",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "polymers",
+     "qty": 2
+    }
+   ],
+   "duration": 25,
+   "energy": 3,
+   "unlock": "IND-5"
+  },
+  {
+   "id": "fuel",
+   "module": "chemical_plant",
+   "inputs": [
+    {
+     "item": "ice",
+     "qty": 2
+    },
+    {
+     "item": "carbon",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "fuel",
+     "qty": 3
+    }
+   ],
+   "duration": 20,
+   "energy": 3,
+   "unlock": "IND-5"
+  },
+  {
+   "id": "circuits",
+   "module": "electronics_plant",
+   "inputs": [
+    {
+     "item": "silicon",
+     "qty": 2
+    },
+    {
+     "item": "refined_copper",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "circuits",
+     "qty": 1
+    }
+   ],
+   "duration": 30,
+   "energy": 4,
+   "unlock": "IND-4"
+  },
+  {
+   "id": "shields",
+   "module": "electronics_plant",
+   "inputs": [
+    {
+     "item": "circuits",
+     "qty": 2
+    },
+    {
+     "item": "polymers",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "shields",
+     "qty": 1
+    }
+   ],
+   "duration": 50,
+   "energy": 5,
+   "unlock": "MIL-3"
+  },
+  {
+   "id": "mechanical_parts",
+   "module": "mechanical_workshop",
+   "inputs": [
+    {
+     "item": "steel",
+     "qty": 2
+    },
+    {
+     "item": "refined_copper",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "mechanical_parts",
+     "qty": 1
+    }
+   ],
+   "duration": 35,
+   "energy": 5,
+   "unlock": "IND-7"
+  },
+  {
+   "id": "engines",
+   "module": "mechanical_workshop",
+   "inputs": [
+    {
+     "item": "mechanical_parts",
+     "qty": 2
+    },
+    {
+     "item": "circuits",
+     "qty": 1
+    },
+    {
+     "item": "titanium_alloy",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "engines",
+     "qty": 1
+    }
+   ],
+   "duration": 60,
+   "energy": 6,
+   "unlock": "IND-7"
+  },
+  {
+   "id": "ammo",
+   "module": "arsenal",
+   "inputs": [
+    {
+     "item": "steel",
+     "qty": 1
+    },
+    {
+     "item": "refined_copper",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "ammo",
+     "qty": 10
+    }
+   ],
+   "duration": 15,
+   "energy": 3,
+   "unlock": "MIL-6"
+  },
+  {
+   "id": "missiles",
+   "module": "arsenal",
+   "inputs": [
+    {
+     "item": "steel",
+     "qty": 2
+    },
+    {
+     "item": "circuits",
+     "qty": 1
+    },
+    {
+     "item": "fuel",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "missiles",
+     "qty": 2
+    }
+   ],
+   "duration": 40,
+   "energy": 5,
+   "unlock": "MIL-6"
+  },
+  {
+   "id": "lab_basic",
+   "module": "laboratory",
+   "inputs": [
+    {
+     "item": "silicon",
+     "qty": 2
+    }
+   ],
+   "outputs": [
+    {
+     "item": "data",
+     "qty": 2
+    }
+   ],
+   "duration": 60,
+   "energy": 3,
+   "unlock": "SCI-2"
+  },
+  {
+   "id": "lab_advanced",
+   "module": "laboratory",
+   "inputs": [
+    {
+     "item": "circuits",
+     "qty": 1
+    },
+    {
+     "item": "silicon",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "data",
+     "qty": 6
+    }
+   ],
+   "duration": 60,
+   "energy": 4,
+   "unlock": "SCI-4"
+  },
+  {
+   "id": "fuel_power",
+   "module": "power_plant",
+   "inputs": [
+    {
+     "item": "fuel",
+     "qty": 1
+    }
+   ],
+   "outputs": [
+    {
+     "item": "electricity",
+     "qty": 30
+    }
+   ],
+   "duration": 30,
+   "energy": 0,
+   "unlock": "IND-6"
+  }
+ ]
+}

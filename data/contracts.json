@@ -1,0 +1,29 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "transport_basic",
+   "type": "transport",
+   "unlock": "COM-2",
+   "params": {
+    "units": 12,
+    "rewardMult": 1.15
+   },
+   "duration": 90,
+   "relation": 2,
+   "weight": 10
+  },
+  {
+   "id": "supply_basic",
+   "type": "supply",
+   "unlock": "COM-4",
+   "params": {
+    "units": 200,
+    "rewardMult": 1.1
+   },
+   "duration": 3600,
+   "relation": 3,
+   "weight": 6
+  }
+ ]
+}

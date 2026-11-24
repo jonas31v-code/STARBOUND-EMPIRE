@@ -1,0 +1,1115 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "NAV-1",
+   "branch": "navigation",
+   "tier": 1,
+   "prerequisites": [],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "tab",
+     "id": "universe"
+    }
+   ]
+  },
+  {
+   "id": "NAV-2",
+   "branch": "navigation",
+   "tier": 1,
+   "prerequisites": [],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "ship.speed",
+     "op": "add",
+     "value": 0.1
+    },
+    {
+     "type": "unlock",
+     "kind": "equipment",
+     "id": "thruster_mk1"
+    }
+   ]
+  },
+  {
+   "id": "NAV-3",
+   "branch": "navigation",
+   "tier": 1,
+   "prerequisites": [
+    "NAV-1"
+   ],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "deposit_scan"
+    }
+   ]
+  },
+  {
+   "id": "NAV-4",
+   "branch": "navigation",
+   "tier": 2,
+   "prerequisites": [
+    "NAV-2",
+    "NAV-3"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "sector_jump"
+    }
+   ]
+  },
+  {
+   "id": "NAV-5",
+   "branch": "navigation",
+   "tier": 2,
+   "prerequisites": [
+    "NAV-2"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "ship.fuel_use",
+     "op": "add",
+     "value": -0.15
+    }
+   ]
+  },
+  {
+   "id": "NAV-6",
+   "branch": "navigation",
+   "tier": 3,
+   "prerequisites": [
+    "NAV-4"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "jump_gates"
+    }
+   ]
+  },
+  {
+   "id": "NAV-7",
+   "branch": "navigation",
+   "tier": 4,
+   "prerequisites": [
+    "NAV-5",
+    "NAV-6"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "long_routes"
+    }
+   ]
+  },
+  {
+   "id": "NAV-8",
+   "branch": "navigation",
+   "tier": 4,
+   "prerequisites": [
+    "NAV-6",
+    "SCI-6"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "hidden_sectors"
+    }
+   ]
+  },
+  {
+   "id": "IND-1",
+   "branch": "industry",
+   "tier": 1,
+   "prerequisites": [],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "manual_mining.yield",
+     "op": "add",
+     "value": 0.1
+    },
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "miner"
+    },
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "mine"
+    }
+   ]
+  },
+  {
+   "id": "IND-2",
+   "branch": "industry",
+   "tier": 1,
+   "prerequisites": [
+    "IND-1"
+   ],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "refinery"
+    }
+   ]
+  },
+  {
+   "id": "IND-3",
+   "branch": "industry",
+   "tier": 2,
+   "prerequisites": [
+    "IND-1"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "warehouse"
+    }
+   ]
+  },
+  {
+   "id": "IND-4",
+   "branch": "industry",
+   "tier": 2,
+   "prerequisites": [
+    "IND-2"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "electronics_plant"
+    }
+   ]
+  },
+  {
+   "id": "IND-5",
+   "branch": "industry",
+   "tier": 2,
+   "prerequisites": [
+    "IND-2"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "chemical_plant"
+    }
+   ]
+  },
+  {
+   "id": "IND-6",
+   "branch": "industry",
+   "tier": 3,
+   "prerequisites": [
+    "IND-3",
+    "IND-4"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "power_plant"
+    },
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "multi_module_stations"
+    }
+   ]
+  },
+  {
+   "id": "IND-7",
+   "branch": "industry",
+   "tier": 3,
+   "prerequisites": [
+    "IND-4",
+    "IND-5"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "mechanical_workshop"
+    }
+   ]
+  },
+  {
+   "id": "IND-8",
+   "branch": "industry",
+   "tier": 3,
+   "prerequisites": [
+    "IND-6",
+    "IND-7"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "shipyard"
+    }
+   ]
+  },
+  {
+   "id": "IND-9",
+   "branch": "industry",
+   "tier": 4,
+   "prerequisites": [
+    "IND-6"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "production.energy",
+     "op": "add",
+     "value": -0.15
+    }
+   ]
+  },
+  {
+   "id": "IND-10",
+   "branch": "industry",
+   "tier": 5,
+   "prerequisites": [
+    "IND-8",
+    "IND-9"
+   ],
+   "cost": {
+    "data": 98304,
+    "credits": 2457600
+   },
+   "duration": 155520,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "megastructures"
+    }
+   ]
+  },
+  {
+   "id": "COM-1",
+   "branch": "commerce",
+   "tier": 1,
+   "prerequisites": [],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "market_registry"
+    }
+   ]
+  },
+  {
+   "id": "COM-2",
+   "branch": "commerce",
+   "tier": 1,
+   "prerequisites": [
+    "COM-1"
+   ],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "activity",
+     "id": "transport_mission"
+    },
+    {
+     "type": "unlock",
+     "kind": "contract",
+     "id": "transport_basic"
+    }
+   ]
+  },
+  {
+   "id": "COM-3",
+   "branch": "commerce",
+   "tier": 1,
+   "prerequisites": [
+    "COM-1"
+   ],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "transporter_s"
+    }
+   ]
+  },
+  {
+   "id": "COM-4",
+   "branch": "commerce",
+   "tier": 2,
+   "prerequisites": [
+    "COM-2",
+    "COM-3"
+   ],
+   "cost": {
+    "data": 96,
+    "credits": 2400
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "trade_routes"
+    }
+   ]
+  },
+  {
+   "id": "COM-5",
+   "branch": "commerce",
+   "tier": 3,
+   "prerequisites": [
+    "COM-4"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "conditional_orders"
+    }
+   ]
+  },
+  {
+   "id": "COM-6",
+   "branch": "commerce",
+   "tier": 3,
+   "prerequisites": [
+    "COM-4",
+    "IND-7"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "transporter_m"
+    },
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "transporter_l"
+    }
+   ]
+  },
+  {
+   "id": "COM-7",
+   "branch": "commerce",
+   "tier": 4,
+   "prerequisites": [
+    "COM-5"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "trade_licenses"
+    }
+   ]
+  },
+  {
+   "id": "COM-8",
+   "branch": "commerce",
+   "tier": 4,
+   "prerequisites": [
+    "COM-5",
+    "SCI-4"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "market_analysis"
+    }
+   ]
+  },
+  {
+   "id": "PER-1",
+   "branch": "staff",
+   "tier": 1,
+   "prerequisites": [],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "tab",
+     "id": "staff"
+    }
+   ]
+  },
+  {
+   "id": "PER-2",
+   "branch": "staff",
+   "tier": 2,
+   "prerequisites": [
+    "PER-1"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "employee.xp",
+     "op": "add",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "id": "PER-3",
+   "branch": "staff",
+   "tier": 3,
+   "prerequisites": [
+    "PER-2"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "station_director"
+    }
+   ]
+  },
+  {
+   "id": "PER-4",
+   "branch": "staff",
+   "tier": 3,
+   "prerequisites": [
+    "PER-2"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "premium_recruitment"
+    }
+   ]
+  },
+  {
+   "id": "PER-5",
+   "branch": "staff",
+   "tier": 4,
+   "prerequisites": [
+    "PER-3"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "officers"
+    }
+   ]
+  },
+  {
+   "id": "PER-6",
+   "branch": "staff",
+   "tier": 4,
+   "prerequisites": [
+    "PER-4"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "employee.salary",
+     "op": "add",
+     "value": -0.1
+    }
+   ]
+  },
+  {
+   "id": "PER-7",
+   "branch": "staff",
+   "tier": 5,
+   "prerequisites": [
+    "PER-3",
+    "PER-6"
+   ],
+   "cost": {
+    "data": 98304,
+    "credits": 2457600
+   },
+   "duration": 155520,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "delegation"
+    }
+   ]
+  },
+  {
+   "id": "MIL-1",
+   "branch": "military",
+   "tier": 1,
+   "prerequisites": [],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "fighter"
+    },
+    {
+     "type": "unlock",
+     "kind": "equipment",
+     "id": "laser_mk1"
+    }
+   ]
+  },
+  {
+   "id": "MIL-2",
+   "branch": "military",
+   "tier": 2,
+   "prerequisites": [
+    "MIL-1"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "modifier",
+     "target": "combat.hull",
+     "op": "add",
+     "value": 0.1
+    }
+   ]
+  },
+  {
+   "id": "MIL-3",
+   "branch": "military",
+   "tier": 2,
+   "prerequisites": [
+    "MIL-1",
+    "IND-4",
+    "IND-5"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "recipe",
+     "id": "shields"
+    },
+    {
+     "type": "unlock",
+     "kind": "equipment",
+     "id": "shield_mk1"
+    }
+   ]
+  },
+  {
+   "id": "MIL-4",
+   "branch": "military",
+   "tier": 3,
+   "prerequisites": [
+    "MIL-2"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "corvette"
+    },
+    {
+     "type": "unlock",
+     "kind": "equipment",
+     "id": "laser_mk2"
+    }
+   ]
+  },
+  {
+   "id": "MIL-5",
+   "branch": "military",
+   "tier": 3,
+   "prerequisites": [
+    "MIL-3",
+    "MIL-4"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "frigate"
+    }
+   ]
+  },
+  {
+   "id": "MIL-6",
+   "branch": "military",
+   "tier": 4,
+   "prerequisites": [
+    "MIL-5",
+    "IND-7"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "arsenal"
+    }
+   ]
+  },
+  {
+   "id": "MIL-7",
+   "branch": "military",
+   "tier": 4,
+   "prerequisites": [
+    "MIL-6"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "destroyer"
+    },
+    {
+     "type": "unlock",
+     "kind": "equipment",
+     "id": "laser_mk3"
+    }
+   ]
+  },
+  {
+   "id": "MIL-8",
+   "branch": "military",
+   "tier": 4,
+   "prerequisites": [
+    "MIL-4",
+    "PER-5"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "doctrines"
+    }
+   ]
+  },
+  {
+   "id": "MIL-9",
+   "branch": "military",
+   "tier": 5,
+   "prerequisites": [
+    "MIL-7",
+    "IND-8"
+   ],
+   "cost": {
+    "data": 98304,
+    "credits": 2457600
+   },
+   "duration": 155520,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "ship",
+     "id": "carrier"
+    }
+   ]
+  },
+  {
+   "id": "MIL-10",
+   "branch": "military",
+   "tier": 5,
+   "prerequisites": [
+    "MIL-8",
+    "MIL-9"
+   ],
+   "cost": {
+    "data": 98304,
+    "credits": 2457600
+   },
+   "duration": 155520,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "conquest"
+    }
+   ]
+  },
+  {
+   "id": "SCI-1",
+   "branch": "science",
+   "tier": 1,
+   "prerequisites": [],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "tab",
+     "id": "research"
+    },
+    {
+     "type": "unlock",
+     "kind": "activity",
+     "id": "explore"
+    }
+   ],
+   "free": true
+  },
+  {
+   "id": "SCI-2",
+   "branch": "science",
+   "tier": 1,
+   "prerequisites": [
+    "SCI-1"
+   ],
+   "cost": {
+    "data": 12,
+    "credits": 300
+   },
+   "duration": 120,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "module",
+     "id": "laboratory"
+    }
+   ]
+  },
+  {
+   "id": "SCI-3",
+   "branch": "science",
+   "tier": 2,
+   "prerequisites": [
+    "SCI-2"
+   ],
+   "cost": {
+    "data": 96,
+    "credits": 2400
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "limit",
+     "key": "offline_cap_hours",
+     "value": 36
+    }
+   ]
+  },
+  {
+   "id": "SCI-4",
+   "branch": "science",
+   "tier": 2,
+   "prerequisites": [
+    "SCI-2"
+   ],
+   "cost": {
+    "data": 192,
+    "credits": 4800
+   },
+   "duration": 720,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "recipe",
+     "id": "lab_advanced"
+    }
+   ]
+  },
+  {
+   "id": "SCI-5",
+   "branch": "science",
+   "tier": 3,
+   "prerequisites": [
+    "SCI-3",
+    "IND-6"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "limit",
+     "key": "offline_cap_hours",
+     "value": 48
+    }
+   ]
+  },
+  {
+   "id": "SCI-6",
+   "branch": "science",
+   "tier": 3,
+   "prerequisites": [
+    "SCI-4"
+   ],
+   "cost": {
+    "data": 1536,
+    "credits": 38400
+   },
+   "duration": 4320,
+   "effects": [
+    {
+     "type": "limit",
+     "key": "research_slots",
+     "value": 2
+    }
+   ]
+  },
+  {
+   "id": "SCI-7",
+   "branch": "science",
+   "tier": 4,
+   "prerequisites": [
+    "SCI-5"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "limit",
+     "key": "offline_cap_hours",
+     "value": 72
+    }
+   ]
+  },
+  {
+   "id": "SCI-8",
+   "branch": "science",
+   "tier": 4,
+   "prerequisites": [
+    "SCI-6",
+    "SCI-5"
+   ],
+   "cost": {
+    "data": 12288,
+    "credits": 307200
+   },
+   "duration": 25920,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "prestige"
+    }
+   ]
+  },
+  {
+   "id": "SCI-9",
+   "branch": "science",
+   "tier": 5,
+   "prerequisites": [
+    "SCI-6",
+    "SCI-8"
+   ],
+   "cost": {
+    "data": 98304,
+    "credits": 2457600
+   },
+   "duration": 155520,
+   "effects": [
+    {
+     "type": "unlock",
+     "kind": "feature",
+     "id": "experimental_tech"
+    }
+   ]
+  }
+ ]
+}

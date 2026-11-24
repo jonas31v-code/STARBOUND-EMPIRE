@@ -1,0 +1,390 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "scout",
+   "hull": 100,
+   "shield": 20,
+   "speed": 10,
+   "cargo": 10,
+   "crewMin": 1,
+   "moduleSlots": 2,
+   "weaponSlots": 0,
+   "fuelUse": 1,
+   "buyPrice": 4600,
+   "build": {
+    "credits": 920,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 4
+     },
+     {
+      "item": "engines",
+      "qty": 1
+     },
+     {
+      "item": "circuits",
+      "qty": 2
+     },
+     {
+      "item": "steel",
+      "qty": 10
+     }
+    ]
+   },
+   "unlock": "NAV-3"
+  },
+  {
+   "id": "miner",
+   "hull": 150,
+   "shield": 10,
+   "speed": 4,
+   "cargo": 80,
+   "crewMin": 1,
+   "moduleSlots": 2,
+   "weaponSlots": 0,
+   "fuelUse": 2,
+   "buyPrice": 5700,
+   "build": {
+    "credits": 1140,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 6
+     },
+     {
+      "item": "engines",
+      "qty": 1
+     },
+     {
+      "item": "circuits",
+      "qty": 2
+     },
+     {
+      "item": "steel",
+      "qty": 15
+     }
+    ]
+   },
+   "unlock": "IND-1"
+  },
+  {
+   "id": "transporter_s",
+   "hull": 120,
+   "shield": 20,
+   "speed": 6,
+   "cargo": 100,
+   "crewMin": 1,
+   "moduleSlots": 2,
+   "weaponSlots": 0,
+   "fuelUse": 2,
+   "buyPrice": 5500,
+   "build": {
+    "credits": 1100,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 6
+     },
+     {
+      "item": "engines",
+      "qty": 1
+     },
+     {
+      "item": "circuits",
+      "qty": 2
+     },
+     {
+      "item": "steel",
+      "qty": 12
+     }
+    ]
+   },
+   "unlock": "COM-3"
+  },
+  {
+   "id": "transporter_m",
+   "hull": 400,
+   "shield": 80,
+   "speed": 5,
+   "cargo": 500,
+   "crewMin": 3,
+   "moduleSlots": 3,
+   "weaponSlots": 1,
+   "fuelUse": 6,
+   "buyPrice": 16100,
+   "build": {
+    "credits": 3220,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 15
+     },
+     {
+      "item": "engines",
+      "qty": 2
+     },
+     {
+      "item": "circuits",
+      "qty": 4
+     },
+     {
+      "item": "titanium_alloy",
+      "qty": 3
+     },
+     {
+      "item": "steel",
+      "qty": 30
+     }
+    ]
+   },
+   "unlock": "COM-6"
+  },
+  {
+   "id": "transporter_l",
+   "hull": 1500,
+   "shield": 300,
+   "speed": 3,
+   "cargo": 2500,
+   "crewMin": 8,
+   "moduleSlots": 4,
+   "weaponSlots": 2,
+   "fuelUse": 15,
+   "buyPrice": 53100,
+   "build": {
+    "credits": 10620,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 40
+     },
+     {
+      "item": "engines",
+      "qty": 4
+     },
+     {
+      "item": "circuits",
+      "qty": 8
+     },
+     {
+      "item": "titanium_alloy",
+      "qty": 10
+     },
+     {
+      "item": "steel",
+      "qty": 80
+     }
+    ]
+   },
+   "unlock": "COM-6"
+  },
+  {
+   "id": "fighter",
+   "hull": 200,
+   "shield": 60,
+   "speed": 12,
+   "cargo": 10,
+   "crewMin": 1,
+   "moduleSlots": 2,
+   "weaponSlots": 2,
+   "fuelUse": 2,
+   "buyPrice": 7400,
+   "build": {
+    "credits": 1480,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 5
+     },
+     {
+      "item": "engines",
+      "qty": 1
+     },
+     {
+      "item": "circuits",
+      "qty": 2
+     },
+     {
+      "item": "shields",
+      "qty": 1
+     },
+     {
+      "item": "steel",
+      "qty": 15
+     }
+    ]
+   },
+   "unlock": "MIL-1"
+  },
+  {
+   "id": "corvette",
+   "hull": 600,
+   "shield": 200,
+   "speed": 8,
+   "cargo": 50,
+   "crewMin": 4,
+   "moduleSlots": 3,
+   "weaponSlots": 4,
+   "fuelUse": 6,
+   "buyPrice": 22900,
+   "build": {
+    "credits": 4580,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 12
+     },
+     {
+      "item": "engines",
+      "qty": 2
+     },
+     {
+      "item": "circuits",
+      "qty": 4
+     },
+     {
+      "item": "titanium_alloy",
+      "qty": 4
+     },
+     {
+      "item": "shields",
+      "qty": 2
+     },
+     {
+      "item": "steel",
+      "qty": 30
+     }
+    ]
+   },
+   "unlock": "MIL-4"
+  },
+  {
+   "id": "frigate",
+   "hull": 2000,
+   "shield": 800,
+   "speed": 6,
+   "cargo": 100,
+   "crewMin": 12,
+   "moduleSlots": 5,
+   "weaponSlots": 8,
+   "fuelUse": 14,
+   "buyPrice": 58700,
+   "build": {
+    "credits": 11740,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 30
+     },
+     {
+      "item": "engines",
+      "qty": 3
+     },
+     {
+      "item": "circuits",
+      "qty": 8
+     },
+     {
+      "item": "titanium_alloy",
+      "qty": 10
+     },
+     {
+      "item": "shields",
+      "qty": 4
+     },
+     {
+      "item": "steel",
+      "qty": 60
+     }
+    ]
+   },
+   "unlock": "MIL-5"
+  },
+  {
+   "id": "destroyer",
+   "hull": 8000,
+   "shield": 3000,
+   "speed": 4,
+   "cargo": 200,
+   "crewMin": 40,
+   "moduleSlots": 8,
+   "weaponSlots": 16,
+   "fuelUse": 40,
+   "buyPrice": 176800,
+   "build": {
+    "credits": 35360,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 80
+     },
+     {
+      "item": "engines",
+      "qty": 6
+     },
+     {
+      "item": "circuits",
+      "qty": 20
+     },
+     {
+      "item": "titanium_alloy",
+      "qty": 30
+     },
+     {
+      "item": "shields",
+      "qty": 10
+     },
+     {
+      "item": "steel",
+      "qty": 150
+     }
+    ]
+   },
+   "unlock": "MIL-7"
+  },
+  {
+   "id": "carrier",
+   "hull": 20000,
+   "shield": 8000,
+   "speed": 2,
+   "cargo": 500,
+   "crewMin": 100,
+   "moduleSlots": 12,
+   "weaponSlots": 10,
+   "fuelUse": 60,
+   "buyPrice": 600000,
+   "build": {
+    "credits": 120000,
+    "items": [
+     {
+      "item": "mechanical_parts",
+      "qty": 200
+     },
+     {
+      "item": "engines",
+      "qty": 12
+     },
+     {
+      "item": "circuits",
+      "qty": 50
+     },
+     {
+      "item": "titanium_alloy",
+      "qty": 100
+     },
+     {
+      "item": "shields",
+      "qty": 25
+     },
+     {
+      "item": "steel",
+      "qty": 400
+     }
+    ]
+   },
+   "unlock": "MIL-9",
+   "hangar": 20
+  }
+ ]
+}

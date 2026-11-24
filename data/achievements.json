@@ -1,0 +1,39 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "level_5_mining",
+   "condition": {
+    "type": "skill_level",
+    "skill": "mining",
+    "value": 5
+   },
+   "reward": {
+    "type": "credits",
+    "value": 200
+   }
+  },
+  {
+   "id": "first_route",
+   "condition": {
+    "type": "phase",
+    "value": 3
+   },
+   "reward": {
+    "type": "credits",
+    "value": 500
+   }
+  },
+  {
+   "id": "first_ship",
+   "condition": {
+    "type": "ship_count",
+    "value": 1
+   },
+   "reward": {
+    "type": "credits",
+    "value": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "solar_panel",
+   "staff": 0,
+   "cost": {
+    "credits": 800,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 5
+     }
+    ]
+   },
+   "buildTime": 100,
+   "costGrowth": 1.15,
+   "energyOutput": 12
+  },
+  {
+   "id": "mine",
+   "staff": 1,
+   "cost": {
+    "credits": 6800,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 45
+     }
+    ]
+   },
+   "buildTime": 557,
+   "costGrowth": 1.15,
+   "unlock": "IND-1"
+  },
+  {
+   "id": "refinery",
+   "staff": 1,
+   "cost": {
+    "credits": 3800,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 25
+     }
+    ]
+   },
+   "buildTime": 349,
+   "costGrowth": 1.15,
+   "unlock": "IND-2"
+  },
+  {
+   "id": "chemical_plant",
+   "staff": 1,
+   "cost": {
+    "credits": 2200,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 15
+     }
+    ]
+   },
+   "buildTime": 225,
+   "costGrowth": 1.15,
+   "unlock": "IND-5"
+  },
+  {
+   "id": "electronics_plant",
+   "staff": 2,
+   "cost": {
+    "credits": 4200,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 28
+     }
+    ]
+   },
+   "buildTime": 378,
+   "costGrowth": 1.15,
+   "unlock": "IND-4"
+  },
+  {
+   "id": "mechanical_workshop",
+   "staff": 2,
+   "cost": {
+    "credits": 13000,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 87
+     }
+    ]
+   },
+   "buildTime": 934,
+   "costGrowth": 1.15,
+   "unlock": "IND-7"
+  },
+  {
+   "id": "arsenal",
+   "staff": 2,
+   "cost": {
+    "credits": 10500,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 70
+     }
+    ]
+   },
+   "buildTime": 787,
+   "costGrowth": 1.15,
+   "unlock": "MIL-6"
+  },
+  {
+   "id": "laboratory",
+   "staff": 2,
+   "cost": {
+    "credits": 6000,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 40
+     }
+    ]
+   },
+   "buildTime": 503,
+   "costGrowth": 1.15,
+   "unlock": "SCI-2"
+  },
+  {
+   "id": "power_plant",
+   "staff": 1,
+   "cost": {
+    "credits": 3000,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 20
+     }
+    ]
+   },
+   "buildTime": 289,
+   "costGrowth": 1.15,
+   "unlock": "IND-6"
+  },
+  {
+   "id": "warehouse",
+   "staff": 1,
+   "cost": {
+    "credits": 2000,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 13
+     }
+    ]
+   },
+   "buildTime": 209,
+   "costGrowth": 1.15,
+   "unlock": "IND-3",
+   "storage": 5000
+  },
+  {
+   "id": "shipyard",
+   "staff": 3,
+   "cost": {
+    "credits": 60000,
+    "items": [
+     {
+      "item": "steel",
+      "qty": 400
+     }
+    ]
+   },
+   "buildTime": 3170,
+   "costGrowth": 1.15,
+   "unlock": "IND-8"
+  }
+ ]
+}

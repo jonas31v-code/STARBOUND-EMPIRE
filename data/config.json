@@ -1,0 +1,36 @@
+{
+ "version": 1,
+ "timeScale": 1,
+ "stepSeconds": 1,
+ "autosaveSeconds": 30,
+ "offline": {
+  "baseCapHours": 24,
+  "stepSeconds": 60,
+  "longStepSeconds": 300,
+  "longStepAfterHours": 6,
+  "efficiency": {
+   "production": 1.0,
+   "research": 1.0,
+   "trade": 0.9,
+   "personalActivity": 0.0
+  }
+ },
+ "market": {
+  "priceSlope": 0.6,
+  "priceBase": 1.6,
+  "priceMin": 0.5,
+  "priceMax": 2.0,
+  "offlineHalfLifeHours": 2
+ },
+ "economy": {
+  "transformMargin": 1.6,
+  "electricityCost": 0.3,
+  "marketLossFactor": 0.8
+ },
+ "start": {
+  "credits": 500,
+  "fuel": 100,
+  "ship": "scout",
+  "sector": "aurore_1"
+ }
+}

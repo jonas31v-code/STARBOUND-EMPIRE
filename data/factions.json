@@ -1,0 +1,285 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "altair_league",
+   "produces": [
+    "circuits",
+    "polymers",
+    "fuel"
+   ],
+   "demands": [
+    "steel",
+    "mechanical_parts",
+    "silicon"
+   ],
+   "relationLevels": [
+    {
+     "id": "hostile",
+     "min": -100,
+     "max": -51,
+     "buyMod": 0.25,
+     "sellMod": -0.2,
+     "access": [
+      "dock_denied"
+     ]
+    },
+    {
+     "id": "wary",
+     "min": -50,
+     "max": -11,
+     "buyMod": 0.1,
+     "sellMod": -0.1,
+     "access": []
+    },
+    {
+     "id": "neutral",
+     "min": -10,
+     "max": 24,
+     "buyMod": 0,
+     "sellMod": 0,
+     "access": []
+    },
+    {
+     "id": "friendly",
+     "min": 25,
+     "max": 59,
+     "buyMod": -0.05,
+     "sellMod": 0.05,
+     "access": [
+      "license_1"
+     ]
+    },
+    {
+     "id": "allied",
+     "min": 60,
+     "max": 100,
+     "buyMod": -0.1,
+     "sellMod": 0.1,
+     "access": [
+      "special_plans",
+      "faction_shipyard"
+     ]
+    }
+   ],
+   "relationEvents": {
+    "transport_done": 2,
+    "supply_done": 3,
+    "escort_done": 4,
+    "combat_done": 5,
+    "contract_failed": -3,
+    "ship_attacked": -10,
+    "station_attacked": -25
+   }
+  },
+  {
+   "id": "ferrum_consortium",
+   "produces": [
+    "steel",
+    "titanium_alloy",
+    "mechanical_parts"
+   ],
+   "demands": [
+    "ice",
+    "carbon",
+    "circuits"
+   ],
+   "relationLevels": [
+    {
+     "id": "hostile",
+     "min": -100,
+     "max": -51,
+     "buyMod": 0.25,
+     "sellMod": -0.2,
+     "access": [
+      "dock_denied"
+     ]
+    },
+    {
+     "id": "wary",
+     "min": -50,
+     "max": -11,
+     "buyMod": 0.1,
+     "sellMod": -0.1,
+     "access": []
+    },
+    {
+     "id": "neutral",
+     "min": -10,
+     "max": 24,
+     "buyMod": 0,
+     "sellMod": 0,
+     "access": []
+    },
+    {
+     "id": "friendly",
+     "min": 25,
+     "max": 59,
+     "buyMod": -0.05,
+     "sellMod": 0.05,
+     "access": [
+      "license_1"
+     ]
+    },
+    {
+     "id": "allied",
+     "min": 60,
+     "max": 100,
+     "buyMod": -0.1,
+     "sellMod": 0.1,
+     "access": [
+      "special_plans",
+      "faction_shipyard"
+     ]
+    }
+   ],
+   "relationEvents": {
+    "transport_done": 2,
+    "supply_done": 3,
+    "escort_done": 4,
+    "combat_done": 5,
+    "contract_failed": -3,
+    "ship_attacked": -10,
+    "station_attacked": -25
+   }
+  },
+  {
+   "id": "black_belt_clans",
+   "produces": [],
+   "demands": [
+    "ammo",
+    "missiles",
+    "fuel"
+   ],
+   "relationLevels": [
+    {
+     "id": "hostile",
+     "min": -100,
+     "max": -51,
+     "buyMod": 0.25,
+     "sellMod": -0.2,
+     "access": [
+      "dock_denied"
+     ]
+    },
+    {
+     "id": "wary",
+     "min": -50,
+     "max": -11,
+     "buyMod": 0.1,
+     "sellMod": -0.1,
+     "access": []
+    },
+    {
+     "id": "neutral",
+     "min": -10,
+     "max": 24,
+     "buyMod": 0,
+     "sellMod": 0,
+     "access": []
+    },
+    {
+     "id": "friendly",
+     "min": 25,
+     "max": 59,
+     "buyMod": -0.05,
+     "sellMod": 0.05,
+     "access": [
+      "license_1"
+     ]
+    },
+    {
+     "id": "allied",
+     "min": 60,
+     "max": 100,
+     "buyMod": -0.1,
+     "sellMod": 0.1,
+     "access": [
+      "special_plans",
+      "faction_shipyard"
+     ]
+    }
+   ],
+   "relationEvents": {
+    "transport_done": 2,
+    "supply_done": 3,
+    "escort_done": 4,
+    "combat_done": 5,
+    "contract_failed": -3,
+    "ship_attacked": -10,
+    "station_attacked": -25
+   }
+  },
+  {
+   "id": "vanguard_directorate",
+   "produces": [
+    "ammo",
+    "missiles",
+    "shields"
+   ],
+   "demands": [
+    "titanium_alloy",
+    "mechanical_parts",
+    "engines"
+   ],
+   "relationLevels": [
+    {
+     "id": "hostile",
+     "min": -100,
+     "max": -51,
+     "buyMod": 0.25,
+     "sellMod": -0.2,
+     "access": [
+      "dock_denied"
+     ]
+    },
+    {
+     "id": "wary",
+     "min": -50,
+     "max": -11,
+     "buyMod": 0.1,
+     "sellMod": -0.1,
+     "access": []
+    },
+    {
+     "id": "neutral",
+     "min": -10,
+     "max": 24,
+     "buyMod": 0,
+     "sellMod": 0,
+     "access": []
+    },
+    {
+     "id": "friendly",
+     "min": 25,
+     "max": 59,
+     "buyMod": -0.05,
+     "sellMod": 0.05,
+     "access": [
+      "license_1"
+     ]
+    },
+    {
+     "id": "allied",
+     "min": 60,
+     "max": 100,
+     "buyMod": -0.1,
+     "sellMod": 0.1,
+     "access": [
+      "special_plans",
+      "faction_shipyard"
+     ]
+    }
+   ],
+   "relationEvents": {
+    "transport_done": 2,
+    "supply_done": 3,
+    "escort_done": 4,
+    "combat_done": 5,
+    "contract_failed": -3,
+    "ship_attacked": -10,
+    "station_attacked": -25
+   }
+  }
+ ]
+}

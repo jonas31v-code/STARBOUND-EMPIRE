@@ -1,0 +1,46 @@
+{
+ "version": 1,
+ "baseSalary": 500,
+ "salaryGrowth": 0.12,
+ "efficiencyPerLevel": 0.015,
+ "efficiencyCap": 0.3,
+ "hireMultiple": 3,
+ "marketSize": 6,
+ "refreshSeconds": 7200,
+ "xpPerSecond": 0.25,
+ "rarities": [
+  {
+   "id": "common",
+   "salaryMult": 1,
+   "efficiencyBonus": 0,
+   "marketShare": 0.7
+  },
+  {
+   "id": "experienced",
+   "salaryMult": 1.4,
+   "efficiencyBonus": 0.08,
+   "marketShare": 0.22
+  },
+  {
+   "id": "expert",
+   "salaryMult": 2.2,
+   "efficiencyBonus": 0.2,
+   "marketShare": 0.07
+  },
+  {
+   "id": "legendary",
+   "salaryMult": 4,
+   "efficiencyBonus": 0.4,
+   "marketShare": 0.01
+  }
+ ],
+ "roles": [
+  "pilot",
+  "engineer",
+  "technician",
+  "researcher",
+  "commander",
+  "trade_manager",
+  "station_director"
+ ]
+}

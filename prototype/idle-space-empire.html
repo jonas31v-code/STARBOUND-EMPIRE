@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Idle Space Empire</title>
+<style>
+:root{--bg:#f4f6fb;--pn:#fff;--bd:#d5dbea;--tx:#141a2b;--mu:#4c5876;--ac:#0a7d74;--gd:#8a5a00;--ob:#e3f4f2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1320;--pn:#171e30;--bd:#2a3350;--tx:#e8ecf5;--mu:#a3aec7;--ac:#4fd1c5;--gd:#f6b64a;--ob:#10302f}}
+:root[data-theme="dark"]{--bg:#0e1320;--pn:#171e30;--bd:#2a3350;--tx:#e8ecf5;--mu:#a3aec7;--ac:#4fd1c5;--gd:#f6b64a;--ob:#10302f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;padding:12px 16px;background:var(--pn);border-bottom:1px solid var(--bd)}
+header b{font-size:19px;color:var(--gd)}header small{display:block;color:var(--mu);font-size:12px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:10px 16px 0}
+button,select{font:inherit;min-height:44px;border-radius:8px;border:1px solid var(--bd);background:var(--pn);color:var(--tx);padding:6px 14px;cursor:pointer}
+button.on{border-color:var(--ac);font-weight:600}button.go{background:var(--ac);color:var(--bg);border:0;font-weight:600}
+button:disabled{opacity:.5;cursor:not-allowed}
+.obj{margin:12px 16px 0;padding:10px 14px;border-radius:8px;background:var(--ob);color:var(--tx)}
+main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px;padding:14px 16px}
+.c{background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.c h2{margin:0;font-size:16px}.mu{color:var(--mu);font-size:13px}.r{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.bar{height:10px;border-radius:5px;background:var(--bd);overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--ac)}
+.log{padding:0 16px 16px;color:var(--mu);font-size:13px}
+#bk{margin:12px 16px 0;padding:12px 14px;border:1px solid var(--ac);border-radius:8px;background:var(--pn)}
+</style>
+</head>
+<body>
+<header><div><b id="cr">0</b><small>Crédits</small></div><div><b id="da">0</b><small>Données</small></div><div><b id="ph">1</b><small>Phase</small></div>
+<label class="mu">Temps <select id="sc"><option value="1">×1</option><option value="10">×10</option><option value="60">×60</option></select></label>
+<button data-a="reset">Réinitialiser</button></header>
+<div id="bk" hidden></div><div class="obj" id="ob"></div><nav id="nav"></nav><main id="pn"></main><div class="log" id="lg"></div>
+<script>
+'use strict';
+const PR={fer:10,cuivre:12,silicium:14,carbone:8,glace:6,titane:40,acier:30,cuivre_r:29,alliage:126,polymeres:18,carburant:11,circuits:91,composants:142,moteurs:802,boucliers:320};
+const NM={fer:'Minerai de fer',cuivre:'Minerai de cuivre',silicium:'Silicium',carbone:'Carbone',glace:'Glace',titane:'Minerai de titane',acier:'Acier',cuivre_r:'Cuivre raffiné',alliage:'Alliage de titane',polymeres:'Polymères',carburant:'Carburant',circuits:'Circuits',composants:'Composants mécaniques',moteurs:'Moteurs spatiaux',boucliers:'Boucliers'};
+const FT={fer:2000,cuivre:2000,silicium:2000,carbone:2000,glace:2000,titane:2000,acier:1000,cuivre_r:1000,alliage:1000,polymeres:800,carburant:800,circuits:800,composants:300,moteurs:300,boucliers:300};
+const TE=[['IND-1','Extraction mécanisée',1,1,[],'+10 % d’extraction manuelle'],['PER-1','Recrutement',1,1,[],'Onglet Employés'],['COM-1','Registre de marché',1,1,[],'Prix de toutes les marchandises'],
+['COM-2','Contrats de transport',1,1,['COM-1'],'Missions de transport manuelles'],['COM-3','Transporteurs S',1,1,['COM-1'],'Achat du Transporteur S'],['COM-4','Routes commerciales',2,1,['COM-2','COM-3'],'Routes automatiques'],
+['IND-2','Raffinage de base',1,1,['IND-1'],'Module Raffinerie'],['IND-3','Stockage modulaire',2,2,['IND-1'],'Entrepôt : +5 000 de stock'],['IND-4','Électronique de base',2,2,['IND-2'],'Usine électronique : circuits'],
+['IND-5','Chimie des polymères',2,2,['IND-2'],'Usine chimique : polymères, carburant'],['IND-6','Stations modulaires',3,2,['IND-3','IND-4'],'Centrale à carburant'],['IND-7','Alliages avancés',3,2,['IND-4','IND-5'],'Atelier mécanique, alliages'],
+['IND-8','Chantier naval',3,2,['IND-6','IND-7'],'Construction de vaisseaux'],['SCI-2','Laboratoire de base',1,1,['SCI-1'],'Laboratoire : données'],['MIL-1','Armement de base',1,1,[],'Chasseur'],['MIL-2','Blindage renforcé',2,2,['MIL-1'],'+10 % de puissance de flotte'],['MIL-3','Boucliers',2,2,['MIL-1','IND-4','IND-5'],'Recette Boucliers'],['MIL-4','Tactique de flotte',3,2,['MIL-2'],'Corvette']].map(([id,n,t,f,p,e])=>({id,n,p,d:12*8**(t-1)*f,c:300*8**(t-1)*f,t:120*6**(t-1),e}));
+const RAR=[['Commun',1,0,.70],['Expérimenté',1.4,.08,.22],['Expert',2.2,.2,.07],['Légendaire',4,.4,.01]];
+const need=l=>60*Math.pow(1.18,l-1);
+const MD={solaire:{n:'Panneaux solaires',c:800,s:5},mine:{n:'Mine',c:6800,s:45,u:'IND-1'},raffinerie:{n:'Raffinerie',c:3800,s:25,u:'IND-2'},chimie:{n:'Usine chimique',c:2200,s:15,u:'IND-5'},elec:{n:'Usine électronique',c:4200,s:28,u:'IND-4'},
+atelier:{n:'Atelier mécanique',c:13000,s:87,u:'IND-7'},labo:{n:'Laboratoire',c:6000,s:40,u:'SCI-2'},centrale:{n:'Centrale à carburant',c:3000,s:20,u:'IND-6'},entrepot:{n:'Entrepôt',c:2000,s:13,u:'IND-3'},chantier:{n:'Chantier naval',c:60000,s:400,u:'IND-8'}};
+const SH={fighter:{n:'Chasseur',cr:1480,pw:71,u:'MIL-1',p:[['composants',5],['moteurs',1],['circuits',2],['boucliers',1],['acier',15]],up:1480/7400*0+300+14.8},corvette:{n:'Corvette',cr:4580,pw:175,u:'MIL-4',p:[['composants',12],['moteurs',2],['circuits',4],['alliage',4],['boucliers',2],['acier',30]],up:1200+45.8}};
+const DR={mine:'fer',raffinerie:'acier',chimie:'polymeres',elec:'circuits',atelier:'composants',labo:'donnees',centrale:'fuelpower'};
+const X=(m,n,o,i,d,e,q)=>({m,n,o,i,d,e,q});
+const RC={fer:X('mine','Extraction de fer',['fer',10],[],30,2),cuivre:X('mine','Extraction de cuivre',['cuivre',10],[],30,2),silicium:X('mine','Extraction de silicium',['silicium',8],[],30,2),carbone:X('mine','Extraction de carbone',['carbone',8],[],30,2),glace:X('mine','Extraction de glace',['glace',8],[],30,2),titane:X('mine','Extraction de titane (niveau 10)',['titane',4],[],45,3,10),
+acier:X('raffinerie','Acier',['acier',2],[['fer',3],['carbone',1]],20,3),cuivre_r:X('raffinerie','Cuivre raffiné',['cuivre_r',2],[['cuivre',3]],20,3),alliage:X('raffinerie','Alliage de titane',['alliage',2],[['titane',3],['acier',1],['carbone',1]],40,4),
+polymeres:X('chimie','Polymères',['polymeres',2],[['carbone',2],['glace',1]],25,3),carburant:X('chimie','Carburant',['carburant',3],[['glace',2],['carbone',1]],20,3),circuits:X('elec','Circuits',['circuits',1],[['silicium',2],['cuivre_r',1]],30,4),
+composants:X('atelier','Composants mécaniques',['composants',1],[['acier',2],['cuivre_r',1]],35,5),moteurs:X('atelier','Moteurs spatiaux',['moteurs',1],[['composants',2],['circuits',1],['alliage',1]],60,6),
+boucliers:{...X('elec','Boucliers',['boucliers',1],[['circuits',2],['polymeres',1]],50,5),u:'MIL-3'},donnees:X('labo','Analyse de base',['donnees',2],[['silicium',2]],60,3),fuelpower:X('centrale','Production d’électricité',['',0],[['carburant',1]],30,0)};
+const bc=k=>{const n=S.st.m.filter(m=>m.t===k).length,g=Math.pow(1.15,n);return{c:Math.round(MD[k].c*g),s:Math.round(MD[k].s*g)}};
+const fm=n=>Math.floor(n).toLocaleString('fr-FR');
+const KEY='ise_v1';
+const fresh=()=>({t:Date.now(),cr:500,da:0,mined:0,sk:{m:{l:1,x:0},e:{l:1,x:0}},tech:[],rs:null,act:'fer',ap:0,drill:false,emp:[],mk:[],mkT:0,ships:[],ph:1,log:['Vous dérivez près de la ceinture d’Aurore. Il vous reste 500 crédits.'],play:0,tab:'p',nid:1,paid:true,st:{m:[],k:{},a:{}},sat:{},fl:{fighter:0,corvette:0},rel:0,pp:0});
+let S,last=Date.now(),scale=1,shown='';
+try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}
+const has=id=>S.tech.includes(id);
+const log=m=>{S.log.unshift(m);S.log.length=6};
+function ymult(){return 1+(has('IND-1')?.1:0)+(S.drill?.15:0)+.01*(S.sk.m.l-1)+.02*S.pp}
+function xp(k,n){const s=S.sk[k];s.x+=n;while(s.x>=need(s.l)){s.x-=need(s.l);s.l++;if(k==='m'&&s.l===5)log('Niveau 5 : minage de silicium débloqué.');if(k==='m'&&s.l===6)log('Niveau 6 : Foreuse Mk1 disponible.')}}
+const ACT={
+fer:{n:'Minage de fer',c:20,ok:()=>true,f(){S.cr+=4*ymult()*PR.fer;S.mined+=4;xp('m',4)},i:()=>`+${(4*ymult()).toFixed(1)} minerai · +${fm(4*ymult()*PR.fer)} cr / 20 s`},
+silicium:{n:'Minage de silicium',c:20,ok:()=>S.sk.m.l>=5,f(){S.cr+=4*ymult()*PR.silicium;S.mined+=4;xp('m',4)},i:()=>`+${fm(4*ymult()*PR.silicium)} cr / 20 s (niveau 5)`},
+explore:{n:'Exploration',c:60,ok:()=>has('SCI-1'),f(){S.da+=10;xp('e',12)},i:()=>'+10 données / 60 s'},
+mission:{n:'Mission de transport',c:90,ok:()=>has('COM-2'),f(){S.cr+=138*(1+rm());S.rel=Math.min(100,S.rel+2)},i:()=>'+138 cr / 90 s (12 unités, prime de 15 %)'}};
+function gen(){let r=Math.random(),k=0,a=0;for(;k<3;k++){a+=RAR[k][3];if(r<a)break}
+const l=1+Math.floor(Math.random()*(2+k*2));const e={id:S.nid++,r:k,l,x:0};e.s=sal(e);return e}
+const sal=e=>500*(1+.12*(e.l-1))*RAR[e.r][1];
+const eff=e=>Math.min(.3,.015*(e.l-1))+RAR[e.r][2];
+function done(id){S.tech.push(id);const t=TE.find(x=>x.id===id);log('Recherche terminée : '+t.n+'.')}
+const rm=()=>S.rel>=60?.1:S.rel>=25?.05:0;
+const FP=()=>(S.fl.fighter*71+S.fl.corvette*175)*(has('MIL-2')?1.1:1);
+function raid(){const P=100*Math.pow(1.35,2),f=FP(),pw=f?1/(1+Math.exp(-4.28*Math.log(f/P))):0;
+if(Math.random()<pw){S.cr+=300;S.rel=Math.min(100,S.rel+1);log('Raid pirate repoussé : +300 cr de butin.');return true}
+let m='La cargaison est perdue.';if(f&&Math.random()<.7){const k=S.fl.corvette?'corvette':'fighter';S.fl[k]--;m+=' Vous perdez '+(k==='corvette'?'une corvette':'un chasseur')+'.'}
+log('Raid pirate : défaite. '+m);return false}
+const mok=k=>{const s=SH[k];return S.st.m.some(m=>m.t==='chantier')&&S.cr>=s.cr&&s.p.every(([g,q])=>(S.st.k[g]||0)>=q)};
+function milh(){const ch=S.st.m.some(m=>m.t==='chantier'),B=k=>{const s=SH[k];return`<button ${mok(k)?'':'disabled'} data-a="mb:${k}">${s.n} : ${fm(s.cr)} cr + ${s.p.map(([g,q])=>q+' '+NM[g].toLowerCase()).join(', ')}</button>`};
+return`<div class="c"><h2>Flotte militaire</h2><div class="r"><span>Chasseurs : ${S.fl.fighter}</span><span>Corvettes : ${S.fl.corvette}</span></div><div class="mu">Puissance ${Math.round(FP())} contre ${Math.round(100*Math.pow(1.35,2))} pour un raid pirate. Équipage et entretien sont payés en continu.</div>${has('MIL-1')?B('fighter'):'<div class="mu">Recherchez MIL-1 (armement).</div>'}${has('MIL-4')?B('corvette'):''}${ch?'':'<div class="mu">Il faut un chantier naval (onglet Industrie).</div>'}</div>`}
+const pas=m=>m.t==='solaire'||m.t==='entrepot'||m.t==='chantier';
+const cap=()=>2000+5000*S.st.m.filter(m=>m.t==='entrepot').length;
+const mult=g=>Math.min(2,Math.max(.5,1.6-.6*(S.sat[g]||1)));
+function sellv(g,q){const f=FT[g]||1000,x=(S.sat[g]||1)+q/f/2;S.cr+=q*PR[g]*.8*(1+rm())*Math.min(2,Math.max(.5,1.6-.6*x));S.sat[g]=(S.sat[g]||1)+q/f}
+function en(){const ms=S.st.m;return[ms.filter(m=>m.t==='solaire').length*.4+ms.filter(m=>m.t==='centrale'&&m.p>0).length,ms.filter(m=>!pas(m)&&m.on&&m.t!=='centrale').reduce((a,m)=>a+RC[m.r].e/RC[m.r].d,0)]}
+function prod(dt){const st=S.st,ms=st.m;if(!ms.length)return;let free=S.emp.filter(e=>!S.ships.some(x=>x.pilot===e.id)).length;
+const act=ms.filter(m=>!pas(m));act.forEach(m=>{m.on=free>0&&S.paid;if(m.on)free--});
+const[sup,dem]=en(),ra=dem?Math.min(1,sup/dem):1;
+for(const m of act){if(!m.on){m.w='sans personnel';continue}const r=RC[m.r];let t=dt*ra*(1+.02*S.pp);m.w='';
+while(t>0){if(m.p===0){if(r.i.every(([g,q])=>(st.k[g]||0)>=q)){r.i.forEach(([g,q])=>st.k[g]-=q);m.p=.0001}else{m.w='entrées manquantes';break}}
+const rest=r.d-m.p;if(t>=rest){t-=rest;m.p=0;const[g,q]=r.o;if(g==='donnees')S.da+=q;else if(g){st.k[g]=Math.min(cap(),(st.k[g]||0)+q);if(m.t==='raffinerie'&&S.ph<4){S.ph=4;log('Phase 4 : Industriel ! Votre premier acier est sorti de la raffinerie.')}
+if(st.a[g]){sellv(g,st.k[g]);st.k[g]=0}}}else{m.p+=t;t=0}}}}
+function tick(dt,off){S.play+=dt;S.cr=Math.max(0,S.cr-(S.fl.fighter*SH.fighter.up+S.fl.corvette*SH.corvette.up)/3600*dt);for(const g in S.sat)S.sat[g]=1+(S.sat[g]-1)*Math.pow(.5,dt/7200);
+if(S.rs){S.rs.l-=dt;if(S.rs.l<=0){done(S.rs.id);S.rs=null}}
+S.mkT-=dt;if(S.mkT<=0||!S.mk.length){S.mk=Array.from({length:6},gen);S.mkT=7200}
+const sl=S.emp.reduce((a,e)=>a+e.s,0)/3600*dt;if(S.cr>=sl){S.cr-=sl;S.paid=true}else{S.cr=0;S.paid=S.emp.length===0}
+for(const sh of S.ships){S.cr=Math.max(0,S.cr-11/3600*dt);const p=S.emp.find(e=>e.id===sh.pilot);if(!p||!S.paid||!has('COM-4'))continue;
+if(!sh.u){const u=Math.min(100,Math.floor(S.cr/PR.silicium));if(u>=1){S.cr-=u*PR.silicium;sh.u=u;sh.t=0;if(S.ph<3){S.ph=3;log('Phase 3 : Entrepreneur ! Votre première route automatique est lancée.')}}}
+if(sh.u){sh.t+=dt*(1+eff(p));p.x+=dt*.25;while(p.x>=need(p.l)){p.x-=need(p.l);p.l++;p.s=sal(p)}
+if(sh.t>=600){const ok=off||Math.random()>.2||raid();if(ok)S.cr+=sh.u*PR.silicium*1.25*(1+rm())*(off?.9:1);S.rel=Math.min(100,S.rel+2);sh.u=0;sh.t=0}}}
+prod(dt);
+if(!off){const a=ACT[S.act];if(!a.ok())S.act='fer';S.ap+=dt;const c=ACT[S.act].c;while(S.ap>=c){S.ap-=c;ACT[S.act].f()}
+if(S.sk.m.l>=2&&!has('SCI-1')){S.tech.push('SCI-1');log('L’ordinateur de bord s’active : onglet Recherche et exploration débloqués.')}
+if(S.ph<2&&S.sk.m.l>=3&&S.tech.filter(x=>x!=='SCI-1').length>=2){S.ph=2;log('Phase 2 : Indépendant !')}}}
+function obj(){const t=S.tech.filter(x=>x!=='SCI-1').length;
+if(S.mined<10)return`Minez 10 minerais (${S.mined}/10).`;if(S.sk.m.l<2)return'Atteignez le niveau 2 de Minage.';
+if(S.ph<2)return t<2?'Terminez deux recherches avec les données de l’exploration, puis atteignez le niveau 3 de Minage.':'Atteignez le niveau 3 de Minage.';
+if(!has('COM-4'))return'Terminez COM-4 (routes commerciales) : il vous faut COM-1, COM-2, COM-3, puis 96 données et 2 400 cr.';
+if(!S.ships.length)return'Achetez un Transporteur S (5 500 cr) dans l’onglet Vaisseaux.';
+if(!S.ships.some(s=>s.pilot))return'Recrutez un pilote (onglet Employés) et affectez-le au Transporteur S.';
+return S.ph<3?'Votre route démarre dès que vous avez de quoi acheter de la cargaison.':S.ph<4?(has('IND-2')?'Phase 3 atteinte. Dans l’onglet Industrie, construisez panneaux solaires, mine de fer, mine de carbone et raffinerie : la phase 4 commence avec le premier acier. Ensuite, montez la chaîne jusqu’aux moteurs et au chantier naval.':'Phase 3 atteinte. Recherchez IND-2 (raffinage) puis passez à l’onglet Industrie.'):'Phase 4 : montez la chaîne jusqu’aux moteurs, construisez le chantier naval, puis une flotte pour protéger vos routes. L’Héritage (prestige) est dans l’onglet Personnage.'}
+const ACTS={
+tab(x){S.tab=x},act(x){S.act=x;S.ap=0},drill(){if(S.cr>=900){S.cr-=900;S.drill=true;log('Foreuse Mk1 installée : +15 % d’extraction.')}},
+rs(x){const t=TE.find(y=>y.id===x);if(S.rs||S.da<t.d||S.cr<t.c)return;S.da-=t.d;S.cr-=t.c;S.rs={id:x,l:t.t,t:t.t}},
+hire(x){const i=S.mk.findIndex(e=>e.id==x),e=S.mk[i];if(!e||S.cr<3*e.s)return;S.cr-=3*e.s;S.mk.splice(i,1);S.emp.push(e)},
+buy(){if(S.cr>=5500){S.cr-=5500;S.ships.push({u:0,t:0,pilot:0})}},
+as(x){const[s,e]=x.split('-').map(Number);const sh=S.ships[s];if(sh)sh.pilot=e},
+close(){$('#bk').hidden=true},
+mb(x){const s=SH[x];if(!mok(x))return;S.cr-=s.cr;s.p.forEach(([g,q])=>S.st.k[g]-=q);S.fl[x]++;log(s.n+' construit.')},
+her(){const b=$('[data-a="her"]');if(!b.dataset.c){b.dataset.c=1;b.textContent='Confirmer ? Vous gardez vos points d’Héritage';setTimeout(()=>{delete b.dataset.c;b.textContent='Lancer l’Héritage'},3000);return}
+const pp=S.pp+Math.floor(S.tech.length/3)+Math.max(0,S.ph-3)*2;S=fresh();S.pp=pp;last=Date.now();log('Héritage : nouvelle partie avec '+pp+' point(s) d’Héritage.')},
+bd(x){const b=bc(x),st=S.st,use=Math.min(b.s,Math.floor(st.k.acier||0)),tot=b.c+(b.s-use)*PR.acier;if(S.cr<tot)return;S.cr-=tot;st.k.acier=(st.k.acier||0)-use;st.m.push({t:x,r:DR[x]||'',p:0,on:false,w:''})},
+build(){const k=S.st.k;if(S.cr<1100||(k.composants||0)<6||(k.moteurs||0)<1||(k.circuits||0)<2||(k.acier||0)<12)return;S.cr-=1100;k.composants-=6;k.moteurs-=1;k.circuits-=2;k.acier-=12;S.ships.push({u:0,t:0,pilot:0});log('Transporteur S construit au chantier naval.')},
+rc(x){const m=S.st.m[x],l=Object.keys(RC).filter(k=>RC[k].m===m.t&&S.sk.m.l>=(RC[k].q||0)&&(!RC[k].u||has(RC[k].u)));m.r=l[(l.indexOf(m.r)+1)%l.length];m.p=0},
+sell(x){const st=S.st;sellv(x,st.k[x]||0);st.k[x]=0},auto(x){S.st.a[x]=!S.st.a[x]},reset(){const b=$('[data-a="reset"]');if(!b.dataset.c){b.dataset.c=1;b.textContent='Confirmer ?';setTimeout(()=>{delete b.dataset.c;b.textContent='Réinitialiser'},3000);return}delete b.dataset.c;b.textContent='Réinitialiser';S=fresh();last=Date.now()}};
+const $=s=>document.querySelector(s);
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const[a,x]=b.dataset.a.split(':');ACTS[a](x);shown=''});
+$('#sc').addEventListener('change',e=>{scale=+e.target.value});
+function tabs(){const a=[['p','Personnage',1],['m','Commerce',S.mined>=10],['v','Vaisseaux',has('COM-3')],['e','Employés',has('PER-1')],['i','Industrie',has('IND-1')&&S.ph>=3],['u','Univers',S.ph>=3],['r','Recherche',has('SCI-1')]].filter(x=>x[2]);
+if(!a.some(x=>x[0]===S.tab))S.tab='p';return a.map(x=>`<button class="${S.tab===x[0]?'on':''}" data-a="tab:${x[0]}">${x[1]}</button>`).join('')}
+function panel(){
+if(S.tab==='p'){return`<div class="c"><h2>Activité (se répète automatiquement)</h2>${Object.entries(ACT).filter(([k,a])=>a.ok()).map(([k,a])=>`<button class="${S.act===k?'on':''}" data-a="act:${k}"><span>${a.n}</span> <span class="mu">${a.i()}</span></button>`).join('')}
+<div class="bar"><i data-w="act"></i></div><div class="mu" data-t="act"></div></div>
+<div class="c"><h2>Compétences</h2><div class="r"><span>Minage</span><span class="mu" data-t="skm"></span></div><div class="bar"><i data-w="skm"></i></div>
+${has('SCI-1')?'<div class="r"><span>Exploration</span><span class="mu" data-t="ske"></span></div><div class="bar"><i data-w="ske"></i></div>':''}
+<div class="mu">Niveau 5 : silicium. Niveau 6 : Foreuse Mk1. Chaque niveau : +1 % d’extraction.</div>
+${S.sk.m.l>=6&&!S.drill?`<button class="go" data-a="drill" ${S.cr<900?'disabled':''}>Foreuse Mk1 : 900 cr (+15 %)</button>`:''}${S.drill?'<div class="mu">Foreuse Mk1 installée.</div>':''}</div>${S.ph>=4?`<div class="c"><h2>Héritage</h2><div class="mu">Recommencez avec des bonus permanents : +2 % d’extraction et de production et +1 h de plafond hors ligne par point. Points actuels : ${S.pp}. Gain si vous lancez maintenant : ${Math.floor(S.tech.length/3)+Math.max(0,S.ph-3)*2}.</div><button data-a="her">Lancer l’Héritage</button></div>`:''}`}
+if(S.tab==='m'){return`<div class="c"><h2>Marché d’Aurore-1</h2>${has('COM-1')?Object.keys(PR).map(k=>`<div class="r"><span>${NM[k]}</span><span>${PR[k]} cr</span></div>`).join(''):`<div class="r"><span>${NM.fer}</span><span>10 cr</span></div><div class="mu">Recherchez COM-1 pour voir tous les prix.</div>`}</div>`}
+if(S.tab==='r'){return`<div class="c"><h2>Recherche (une à la fois)</h2>${TE.map(t=>{const d=has(t.id),ok=t.p.every(has);
+return`<div class="r"><span>${t.id} · ${t.n}<br><span class="mu">${t.e} · ${t.d} données · ${fm(t.c)} cr · ${Math.round(t.t/60)} min</span></span>${d?'<span class="mu">Terminée</span>':S.rs&&S.rs.id===t.id?'<span class="mu" data-t="rs"></span>':`<button ${!ok||S.rs||S.da<t.d||S.cr<t.c?'disabled':''} data-a="rs:${t.id}">Lancer</button>`}</div>`}).join('')}<div class="bar"><i data-w="rs"></i></div></div>`}
+if(S.tab==='e'){return`<div class="c"><h2>Votre équipe</h2>${S.emp.length?S.emp.map(e=>`<div class="r"><span>Employé n° ${e.id} · ${RAR[e.r][0]} niv. ${e.l}</span><span class="mu">${fm(e.s)} cr/h · +${(eff(e)*100).toFixed(1)} %</span></div>`).join(''):'<div class="mu">Aucun employé.</div>'}${S.paid?'':'<div class="mu">Salaires impayés : l’équipe est à l’arrêt.</div>'}</div>
+<div class="c"><h2>Marché de recrutement</h2><div class="mu" data-t="mk"></div>${S.mk.map(e=>`<div class="r"><span>${RAR[e.r][0]} niv. ${e.l}<br><span class="mu">${fm(e.s)} cr/h · +${(eff(e)*100).toFixed(1)} %</span></span><button ${S.cr<3*e.s?'disabled':''} data-a="hire:${e.id}">Recruter ${fm(3*e.s)} cr</button></div>`).join('')}</div>`}
+if(S.tab==='v'){return`<div class="c"><h2>Flotte</h2>${S.ships.length?S.ships.map((s,i)=>{const free=S.emp.filter(e=>!S.ships.some(x=>x.pilot===e.id));const p=S.emp.find(e=>e.id===s.pilot);
+return`<div class="c"><div class="r"><b>Transporteur S n° ${i+1}</b><span class="mu">Pilote : ${p?'employé n° '+p.id:'aucun'}</span></div>${p?(has('COM-4')?`<div class="bar"><i data-w="sh${i}"></i></div><div class="mu" data-t="sh${i}"></div>`:'<div class="mu">Il faut COM-4 pour lancer une route.</div>'):free.map(e=>`<button data-a="as:${i}-${e.id}">Affecter l’employé n° ${e.id}</button>`).join('')||'<div class="mu">Recrutez un pilote.</div>'}</div>`}).join(''):'<div class="mu">Aucun vaisseau.</div>'}
+${S.st.m.some(m=>m.t==='chantier')?`<button ${S.cr>=1100&&(S.st.k.composants||0)>=6&&(S.st.k.moteurs||0)>=1&&(S.st.k.circuits||0)>=2&&(S.st.k.acier||0)>=12?'':'disabled'} data-a="build">Construire un Transporteur S : 1 100 cr + 6 composants, 1 moteur, 2 circuits, 12 acier</button>`:''}<button class="go" ${S.cr<5500?'disabled':''} data-a="buy">Acheter un Transporteur S : 5 500 cr</button>
+<div class="mu">Route : silicium à 14 cr, revente avec 25 % de marge, cycle de 10 min. La cargaison est limitée par vos crédits. Une route peut subir un raid pirate (1 fois sur 5, jamais hors ligne) : une flotte militaire la protège.</div></div>${milh()}`}
+if(S.tab==='i'){const st=S.st,ks=Object.keys(st.k).filter(g=>g);return`<div class="c"><h2>Station d’Aurore-2</h2><div class="mu">Énergie : <span data-t="en"></span> · stock max par marchandise : <span data-t="cap"></span> · le personnel vient de vos employés libres (hors pilotes)</div>
+${st.m.length?st.m.map((m,i)=>pas(m)?`<div class="r"><span>${MD[m.t].n}</span></div>`:`<div class="r"><span>${MD[m.t].n} · ${RC[m.r].n}<br><span class="mu" data-t="m${i}"></span></span>${Object.values(RC).filter(r=>r.m===m.t).length>1?`<button data-a="rc:${i}">Changer de recette</button>`:''}</div><div class="bar"><i data-w="m${i}"></i></div>`).join(''):'<div class="mu">Aucun module.</div>'}</div>
+<div class="c"><h2>Construire</h2>${Object.entries(MD).filter(([k,d])=>!d.u||has(d.u)).map(([k,d])=>{const b=bc(k);return`<button ${S.cr<b.c+Math.max(0,b.s-(st.k.acier||0))*PR.acier?'disabled':''} data-a="bd:${k}">${d.n} : ${fm(b.c)} cr + ${b.s} acier</button>`}).join('')}<div class="mu">L’acier manquant est acheté 30 cr l’unité. Chaque exemplaire supplémentaire coûte 15 % de plus.</div></div>
+<div class="c"><h2>Stock</h2>${ks.length?ks.map(g=>`<div class="r"><span>${NM[g]} : <span data-t="k_${g}"></span><br><span class="mu">prix du marché ×<span data-t="p_${g}"></span></span></span><span><button data-a="sell:${g}">Vendre</button> <button class="${st.a[g]?'on':''}" data-a="auto:${g}">Vente auto</button></span></div>`).join(''):'<div class="mu">Stock vide.</div>'}<div class="mu">Vente à 80 % du prix de référence ; le marché sature quand vous vendez beaucoup et se rétablit en quelques heures.</div></div>`}
+if(S.tab==='u'){return`<div class="c"><h2>Système d’Aurore</h2><svg viewBox="0 0 560 200" role="img" aria-label="Carte du système d’Aurore : cinq secteurs reliés entre eux" style="width:100%;height:auto;color:var(--mu)"><g stroke="currentColor" stroke-width="2"><line x1="70" y1="100" x2="190" y2="40"/><line x1="70" y1="100" x2="190" y2="160"/><line x1="190" y1="40" x2="350" y2="40"/><line x1="190" y1="160" x2="350" y2="160"/><line x1="350" y1="40" x2="490" y2="100"/><line x1="350" y1="160" x2="490" y2="100"/></g>
+<g fill="var(--pn)" stroke="var(--ac)" stroke-width="3"><circle cx="70" cy="100" r="20"/><circle cx="190" cy="40" r="16"/><circle cx="190" cy="160" r="16"/><circle cx="350" cy="40" r="16"/><circle cx="350" cy="160" r="16"/></g><circle cx="490" cy="100" r="16" fill="none" stroke="currentColor" stroke-dasharray="5 4" stroke-width="3"/>
+<g fill="var(--tx)" font-size="12" text-anchor="middle"><text x="70" y="138">Aurore-1</text><text x="190" y="72">Aurore-2</text><text x="190" y="192">Aurore-3</text><text x="350" y="72">Aurore-4</text><text x="350" y="192">Aurore-5</text><text x="490" y="138">Porte de saut</text></g></svg></div>
+<div class="c"><h2>Secteurs</h2><div class="r"><span>Aurore-1 · risque 2</span><span class="mu">fer, silicium, glace</span></div><div class="r"><span>Aurore-2 · risque 2 · votre station</span><span class="mu">fer, carbone</span></div><div class="r"><span>Aurore-3 · risque 3</span><span class="mu">cuivre, silicium</span></div><div class="r"><span>Aurore-4 · risque 3</span><span class="mu">carbone, glace, titane (peu)</span></div><div class="r"><span>Aurore-5 · risque 4</span><span class="mu">fer, titane (peu)</span></div>
+<div class="mu">Faction dominante : Ligue Marchande d’Altaïr. Les portes de saut vers Ferrum, la Ceinture Noire et Vanguard demandent NAV-6 (pas encore dans le jeu).</div></div>
+<div class="c"><h2>Factions</h2><div class="r"><span>Ligue Marchande d’Altaïr</span><span class="mu" data-t="rel"></span></div><div class="mu">Les routes et missions améliorent la relation. Amical (25) : +5 % sur vos ventes. Allié (60) : +10 %.</div><div class="mu">Consortium Ferrum, Clans de la Ceinture Noire et Directoire Vanguard : à venir avec NAV-6.</div></div>`}
+return''}
+function upd(){
+$('#cr').textContent=fm(S.cr);$('#da').textContent=fm(S.da);$('#ph').textContent=S.ph;$('#ob').textContent=obj();
+const a=ACT[S.act];const set=(k,v)=>document.querySelectorAll('[data-t="'+k+'"]').forEach(n=>n.textContent=v);
+const w=(k,v)=>document.querySelectorAll('[data-w="'+k+'"]').forEach(n=>n.style.width=Math.min(100,v*100)+'%');
+w('act',S.ap/a.c);set('act',`${a.n} : ${Math.floor(S.ap)} s sur ${a.c} s`);
+const m=S.sk.m,e=S.sk.e;w('skm',m.x/need(m.l));set('skm',`niveau ${m.l} · ${Math.floor(m.x)} / ${Math.floor(need(m.l))} XP`);w('ske',e.x/need(e.l));set('ske',`niveau ${e.l} · ${Math.floor(e.x)} / ${Math.floor(need(e.l))} XP`);
+if(S.rs){w('rs',1-S.rs.l/S.rs.t);set('rs',Math.ceil(S.rs.l)+' s restantes')}else w('rs',0);
+S.ships.forEach((s,i)=>{w('sh'+i,s.t/600);set('sh'+i,s.u?`En route : ${s.u} unités · ${Math.floor(s.t)} s sur 600 s`:'En attente de crédits pour acheter de la cargaison')});
+set('mk','Renouvelé dans '+Math.ceil(S.mkT/60)+' min');
+const[es,ed]=en();set('en',es.toFixed(2)+' produite / '+ed.toFixed(2)+' demandée');
+set('cap',fm(cap()));set('rel',(S.rel>=60?'Allié':S.rel>=25?'Amical':S.rel>=-10?'Neutre':'Méfiant')+' ('+Math.floor(S.rel)+')');S.st.m.forEach((m,i)=>{if(pas(m))return;w('m'+i,m.p/RC[m.r].d);set('m'+i,m.w||('cycle '+Math.floor(m.p)+' s sur '+RC[m.r].d+' s'))});
+for(const g in S.st.k){set('k_'+g,fm(S.st.k[g]));set('p_'+g,mult(g).toFixed(2))}
+$('#lg').innerHTML=S.log.map(x=>'<div>'+x+'</div>').join('')}
+function render(){const n=tabs(),p=panel(),h=n+'|'+p;if(h!==shown){shown=h;$('#nav').innerHTML=n;$('#pn').innerHTML=p}upd()}
+function save(){try{S.t=Date.now();localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+if(S&&S.sk&&!S.st)S.st={m:[],k:{},a:{}};
+if(S&&S.sk&&!S.sat)S.sat={};
+if(S&&S.sk&&!S.fl){S.fl={fighter:0,corvette:0};S.rel=0;S.pp=0}
+if(!S||!S.sk){S=fresh()}else{
+const el=Math.min((Date.now()-S.t)/1000,86400+3600*S.pp);if(el>120){const c0=S.cr,t0=S.tech.length;let r=el;while(r>0){const d=Math.min(60,r);tick(d,true);r-=d}
+const b=$('#bk');b.hidden=false;b.innerHTML=`<b>Bon retour !</b> Vous étiez absent ${Math.floor(el/3600)} h ${Math.floor(el%3600/60)} min. Crédits : ${S.cr>=c0?'+':''}${fm(S.cr-c0)}. Recherches terminées : ${S.tech.length-t0}. <button data-a="close">Fermer</button>`}}
+last=Date.now();
+setInterval(()=>{const n=Date.now(),dt=Math.min((n-last)/1000,5)*scale;last=n;let r=dt;while(r>0){const d=Math.min(1,r);tick(d,false);r-=d}render()},250);
+setInterval(save,5000);addEventListener('pagehide',save);document.addEventListener('visibilitychange',()=>{if(document.hidden)save()});
+render();
+</script>
+</body>
+</html>

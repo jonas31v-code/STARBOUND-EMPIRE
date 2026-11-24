@@ -1,0 +1,667 @@
+{
+ "version": 1,
+ "systems": [
+  {
+   "id": "aurore"
+  },
+  {
+   "id": "ferrum",
+   "unlock": "NAV-6"
+  },
+  {
+   "id": "black_belt",
+   "unlock": "NAV-6"
+  },
+  {
+   "id": "vanguard",
+   "unlock": "NAV-6"
+  }
+ ],
+ "sectors": [
+  {
+   "id": "aurore_1",
+   "system": "aurore",
+   "faction": "altair_league",
+   "risk": 2,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 1.0
+    },
+    {
+     "item": "silicon",
+     "richness": 0.8
+    },
+    {
+     "item": "ice",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "aurore_1_hub",
+     "faction": "altair_league"
+    }
+   ],
+   "links": [
+    {
+     "to": "aurore_2",
+     "distance": 4
+    },
+    {
+     "to": "aurore_3",
+     "distance": 4
+    }
+   ],
+   "start": true
+  },
+  {
+   "id": "aurore_2",
+   "system": "aurore",
+   "faction": "altair_league",
+   "risk": 2,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 1.0
+    },
+    {
+     "item": "carbon",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "aurore_2_hub",
+     "faction": "altair_league"
+    }
+   ],
+   "links": [
+    {
+     "to": "aurore_1",
+     "distance": 4
+    },
+    {
+     "to": "aurore_3",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "aurore_3",
+   "system": "aurore",
+   "faction": "altair_league",
+   "risk": 3,
+   "deposits": [
+    {
+     "item": "copper_ore",
+     "richness": 1.0
+    },
+    {
+     "item": "silicon",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "aurore_3_hub",
+     "faction": "altair_league"
+    }
+   ],
+   "links": [
+    {
+     "to": "aurore_2",
+     "distance": 4
+    },
+    {
+     "to": "aurore_4",
+     "distance": 4
+    },
+    {
+     "to": "aurore_1",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "aurore_4",
+   "system": "aurore",
+   "faction": "altair_league",
+   "risk": 3,
+   "deposits": [
+    {
+     "item": "carbon",
+     "richness": 1.0
+    },
+    {
+     "item": "ice",
+     "richness": 0.8
+    },
+    {
+     "item": "titanium_ore",
+     "richness": 0.2
+    }
+   ],
+   "stations": [
+    {
+     "id": "aurore_4_hub",
+     "faction": "altair_league"
+    }
+   ],
+   "links": [
+    {
+     "to": "aurore_3",
+     "distance": 4
+    },
+    {
+     "to": "aurore_5",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "aurore_5",
+   "system": "aurore",
+   "faction": "altair_league",
+   "risk": 4,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 0.8
+    },
+    {
+     "item": "titanium_ore",
+     "richness": 0.3
+    }
+   ],
+   "stations": [
+    {
+     "id": "aurore_5_hub",
+     "faction": "altair_league"
+    }
+   ],
+   "links": [
+    {
+     "to": "aurore_4",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "ferrum_1",
+   "system": "ferrum",
+   "faction": "ferrum_consortium",
+   "risk": 1,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 1.5
+    },
+    {
+     "item": "titanium_ore",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "ferrum_1_hub",
+     "faction": "ferrum_consortium"
+    }
+   ],
+   "links": [
+    {
+     "to": "ferrum_2",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "ferrum_2",
+   "system": "ferrum",
+   "faction": "ferrum_consortium",
+   "risk": 1,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 1.2
+    },
+    {
+     "item": "carbon",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "ferrum_2_hub",
+     "faction": "ferrum_consortium"
+    }
+   ],
+   "links": [
+    {
+     "to": "ferrum_1",
+     "distance": 4
+    },
+    {
+     "to": "ferrum_3",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "ferrum_3",
+   "system": "ferrum",
+   "faction": "ferrum_consortium",
+   "risk": 2,
+   "deposits": [
+    {
+     "item": "copper_ore",
+     "richness": 1.5
+    }
+   ],
+   "stations": [
+    {
+     "id": "ferrum_3_hub",
+     "faction": "ferrum_consortium"
+    }
+   ],
+   "links": [
+    {
+     "to": "ferrum_2",
+     "distance": 4
+    },
+    {
+     "to": "ferrum_4",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "ferrum_4",
+   "system": "ferrum",
+   "faction": "ferrum_consortium",
+   "risk": 2,
+   "deposits": [
+    {
+     "item": "titanium_ore",
+     "richness": 1.5
+    }
+   ],
+   "stations": [
+    {
+     "id": "ferrum_4_hub",
+     "faction": "ferrum_consortium"
+    }
+   ],
+   "links": [
+    {
+     "to": "ferrum_3",
+     "distance": 4
+    },
+    {
+     "to": "ferrum_5",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "ferrum_5",
+   "system": "ferrum",
+   "faction": "ferrum_consortium",
+   "risk": 3,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 1.0
+    },
+    {
+     "item": "ice",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "ferrum_5_hub",
+     "faction": "ferrum_consortium"
+    }
+   ],
+   "links": [
+    {
+     "to": "ferrum_4",
+     "distance": 4
+    },
+    {
+     "to": "ferrum_6",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "ferrum_6",
+   "system": "ferrum",
+   "faction": "ferrum_consortium",
+   "risk": 3,
+   "deposits": [
+    {
+     "item": "titanium_ore",
+     "richness": 1.2
+    },
+    {
+     "item": "copper_ore",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "ferrum_6_hub",
+     "faction": "ferrum_consortium"
+    }
+   ],
+   "links": [
+    {
+     "to": "ferrum_5",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "black_belt_1",
+   "system": "black_belt",
+   "faction": "black_belt_clans",
+   "risk": 6,
+   "deposits": [
+    {
+     "item": "titanium_ore",
+     "richness": 1.5
+    }
+   ],
+   "stations": [
+    {
+     "id": "black_belt_1_hub",
+     "faction": "black_belt_clans"
+    }
+   ],
+   "links": [
+    {
+     "to": "black_belt_2",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "black_belt_2",
+   "system": "black_belt",
+   "faction": "black_belt_clans",
+   "risk": 7,
+   "deposits": [
+    {
+     "item": "silicon",
+     "richness": 1.5
+    }
+   ],
+   "stations": [
+    {
+     "id": "black_belt_2_hub",
+     "faction": "black_belt_clans"
+    }
+   ],
+   "links": [
+    {
+     "to": "black_belt_1",
+     "distance": 4
+    },
+    {
+     "to": "black_belt_3",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "black_belt_3",
+   "system": "black_belt",
+   "faction": "black_belt_clans",
+   "risk": 8,
+   "deposits": [
+    {
+     "item": "titanium_ore",
+     "richness": 2.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "black_belt_3_hub",
+     "faction": "black_belt_clans"
+    }
+   ],
+   "links": [
+    {
+     "to": "black_belt_2",
+     "distance": 4
+    },
+    {
+     "to": "black_belt_4",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "black_belt_4",
+   "system": "black_belt",
+   "faction": "black_belt_clans",
+   "risk": 9,
+   "deposits": [
+    {
+     "item": "ice",
+     "richness": 1.5
+    },
+    {
+     "item": "carbon",
+     "richness": 1.5
+    }
+   ],
+   "stations": [
+    {
+     "id": "black_belt_4_hub",
+     "faction": "black_belt_clans"
+    }
+   ],
+   "links": [
+    {
+     "to": "black_belt_3",
+     "distance": 4
+    },
+    {
+     "to": "black_belt_5",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "black_belt_5",
+   "system": "black_belt",
+   "faction": "black_belt_clans",
+   "risk": 10,
+   "deposits": [
+    {
+     "item": "titanium_ore",
+     "richness": 2.5
+    }
+   ],
+   "stations": [
+    {
+     "id": "black_belt_5_hub",
+     "faction": "black_belt_clans"
+    }
+   ],
+   "links": [
+    {
+     "to": "black_belt_4",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "vanguard_1",
+   "system": "vanguard",
+   "faction": "vanguard_directorate",
+   "risk": 4,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "vanguard_1_hub",
+     "faction": "vanguard_directorate"
+    }
+   ],
+   "links": [
+    {
+     "to": "vanguard_2",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "vanguard_2",
+   "system": "vanguard",
+   "faction": "vanguard_directorate",
+   "risk": 4,
+   "deposits": [
+    {
+     "item": "carbon",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "vanguard_2_hub",
+     "faction": "vanguard_directorate"
+    }
+   ],
+   "links": [
+    {
+     "to": "vanguard_1",
+     "distance": 4
+    },
+    {
+     "to": "vanguard_3",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "vanguard_3",
+   "system": "vanguard",
+   "faction": "vanguard_directorate",
+   "risk": 5,
+   "deposits": [
+    {
+     "item": "silicon",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "vanguard_3_hub",
+     "faction": "vanguard_directorate"
+    }
+   ],
+   "links": [
+    {
+     "to": "vanguard_2",
+     "distance": 4
+    },
+    {
+     "to": "vanguard_4",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "vanguard_4",
+   "system": "vanguard",
+   "faction": "vanguard_directorate",
+   "risk": 5,
+   "deposits": [
+    {
+     "item": "titanium_ore",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "vanguard_4_hub",
+     "faction": "vanguard_directorate"
+    }
+   ],
+   "links": [
+    {
+     "to": "vanguard_3",
+     "distance": 4
+    },
+    {
+     "to": "vanguard_5",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "vanguard_5",
+   "system": "vanguard",
+   "faction": "vanguard_directorate",
+   "risk": 6,
+   "deposits": [
+    {
+     "item": "iron_ore",
+     "richness": 1.0
+    },
+    {
+     "item": "copper_ore",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "vanguard_5_hub",
+     "faction": "vanguard_directorate"
+    }
+   ],
+   "links": [
+    {
+     "to": "vanguard_4",
+     "distance": 4
+    },
+    {
+     "to": "vanguard_6",
+     "distance": 4
+    }
+   ]
+  },
+  {
+   "id": "vanguard_6",
+   "system": "vanguard",
+   "faction": "vanguard_directorate",
+   "risk": 7,
+   "deposits": [
+    {
+     "item": "ice",
+     "richness": 1.0
+    }
+   ],
+   "stations": [
+    {
+     "id": "vanguard_6_hub",
+     "faction": "vanguard_directorate"
+    }
+   ],
+   "links": [
+    {
+     "to": "vanguard_5",
+     "distance": 4
+    }
+   ]
+  }
+ ]
+}

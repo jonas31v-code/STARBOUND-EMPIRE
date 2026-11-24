@@ -1,0 +1,267 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "piloting",
+   "category": "navigation",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "production.speed",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [],
+   "actions": []
+  },
+  {
+   "id": "exploration",
+   "category": "navigation",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "production.speed",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [],
+   "actions": [
+    {
+     "id": "explore",
+     "cycle": 60,
+     "xp": 12,
+     "outputs": [
+      {
+       "item": "data",
+       "qty": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mining",
+   "category": "industry",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "manual_mining.yield",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [
+    {
+     "level": 5,
+     "effects": [
+      {
+       "type": "unlock",
+       "kind": "activity",
+       "id": "mine_silicon"
+      }
+     ]
+    },
+    {
+     "level": 6,
+     "effects": [
+      {
+       "type": "unlock",
+       "kind": "equipment",
+       "id": "drill_mk1"
+      }
+     ]
+    },
+    {
+     "level": 10,
+     "effects": [
+      {
+       "type": "unlock",
+       "kind": "recipe",
+       "id": "mine_titanium"
+      }
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "id": "mine_iron",
+     "cycle": 20,
+     "xp": 4,
+     "sellDirect": true,
+     "outputs": [
+      {
+       "item": "iron_ore",
+       "qty": 4
+      }
+     ]
+    },
+    {
+     "id": "mine_silicon",
+     "cycle": 20,
+     "xp": 4,
+     "sellDirect": true,
+     "outputs": [
+      {
+       "item": "silicon",
+       "qty": 4
+      }
+     ],
+     "requires": {
+      "level": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": "engineering",
+   "category": "industry",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "production.speed",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [],
+   "actions": []
+  },
+  {
+   "id": "trade",
+   "category": "economy",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "market.margin",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [],
+   "actions": [
+    {
+     "id": "transport_mission",
+     "cycle": 90,
+     "xp": 4,
+     "outputs": []
+    }
+   ]
+  },
+  {
+   "id": "combat",
+   "category": "military",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "combat.damage",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [],
+   "actions": []
+  },
+  {
+   "id": "command",
+   "category": "military",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "combat.hull",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [],
+   "actions": []
+  },
+  {
+   "id": "research",
+   "category": "science",
+   "xp": {
+    "base": 60,
+    "growth": 1.18
+   },
+   "maxLevel": 50,
+   "levelBonus": {
+    "target": "research.speed",
+    "perLevel": 0.01,
+    "cap": 0.5
+   },
+   "mastery": {
+    "base": 200,
+    "growth": 1.3,
+    "maxLevel": 20,
+    "bonusPerLevel": 0.02,
+    "cap": 0.4
+   },
+   "milestones": [],
+   "actions": []
+  }
+ ]
+}
